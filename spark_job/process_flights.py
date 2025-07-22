@@ -1,5 +1,6 @@
 # spark_job/process_flights.py
 
+# Importações necessárias - GARANTA QUE TODAS ESTEJAM AQUI
 import requests
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, from_unixtime
@@ -18,6 +19,9 @@ def get_flight_data():
 
 def main():
     """Função principal do nosso job Spark."""
+    
+    # 1. Criando a SparkSession (sem a linha .config)
+    # O Spark encontrará o driver JDBC automaticamente na pasta /opt/bitnami/spark/jars
     spark = SparkSession.builder \
         .appName("FlightDataProcessing") \
         .master("local[*]") \
@@ -25,6 +29,7 @@ def main():
     
     print("Sessão Spark criada com sucesso!")
 
+    # 2. Definindo o Schema Explícito
     schema = StructType([
         StructField("icao24", StringType(), True),
         StructField("callsign", StringType(), True),
@@ -50,41 +55,55 @@ def main():
     if flight_data_json and 'states' in flight_data_json and flight_data_json['states']:
         flight_list = flight_data_json['states']
         
-        # ------------------ NOVA SEÇÃO: LIMPEZA DE DADOS ------------------
-        # Vamos garantir que os tipos de dados estão corretos antes de criar o DataFrame.
-        # Índices das colunas que definimos como DoubleType em nosso schema.
+        # 3. Limpeza de Dados (Pré-processamento)
         double_indices = {5, 6, 7, 9, 10, 11, 13}
-        
         processed_flight_list = []
         for flight_row in flight_list:
-            # Convertemos a linha para uma lista para podermos modificar os valores
             processed_row = list(flight_row)
             for index in double_indices:
                 if processed_row[index] is not None and isinstance(processed_row[index], int):
-                    # Se encontrarmos um inteiro onde deveria ser um double, convertemos para float.
                     processed_row[index] = float(processed_row[index])
             processed_flight_list.append(processed_row)
-        # ----------------------------------------------------------------------
 
-        # Usamos a lista processada e limpa para criar o DataFrame
         flights_df = spark.createDataFrame(processed_flight_list, schema=schema)
-
-        print("Schema do DataFrame de Voos (definido por nós):")
-        flights_df.printSchema()
-
-        print("Alguns dados de voos recebidos (após limpeza):")
-        flights_df.show(5, truncate=False)
         
         df_transformed = flights_df.withColumn(
             "time_position_readable",
             from_unixtime(col("time_position"))
+        ).withColumn(
+            "last_contact_readable",
+            from_unixtime(col("last_contact"))
+        )
+        
+        # 4. Escrevendo no Banco de Dados PostgreSQL
+        print("Iniciando escrita dos dados no PostgreSQL...")
+        
+        df_to_write = df_transformed.select(
+            "icao24", "callsign", "origin_country", "longitude", "latitude", 
+            "baro_altitude", "on_ground", "velocity", "true_track", 
+            "vertical_rate", "geo_altitude", "squawk", "time_position_readable", "last_contact_readable"
+        ).filter(col("callsign").isNotNull())
+
+        db_properties = {
+            "user": "datateam",
+            "password": "datateam",
+            "driver": "org.postgresql.Driver"
+        }
+        
+        # Use a URL com o IP que encontrámos anteriormente
+        db_url = "jdbc:postgresql://172.18.0.3:5432/flights" # MANTENHA O IP AQUI
+
+        df_to_write.write.jdbc(
+            url=db_url,
+            table="flight_data_live",
+            mode="overwrite",
+            properties=db_properties
         )
 
-        print("DataFrame com a coluna de tempo transformada:")
-        df_transformed.select("callsign", "origin_country", "longitude", "latitude", "time_position_readable").show(5, truncate=False)
+        print(f"{df_to_write.count()} registros de voos escritos com sucesso na tabela 'flight_data_live'!")
 
     else:
-        print("Não foi possível obter dados dos voos ou a resposta veio vazia.")
+        print("Não foi possível obter dados dos voos ou a resposta da API veio vazia.")
 
     spark.stop()
 
