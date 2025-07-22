@@ -1,0 +1,174 @@
+[2025-07-22T15:15:01.184+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-22T15:15:01.202+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_data_pipeline.run_spark_job_container scheduled__2025-07-22T15:00:00+00:00 [queued]>
+[2025-07-22T15:15:01.208+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_data_pipeline.run_spark_job_container scheduled__2025-07-22T15:00:00+00:00 [queued]>
+[2025-07-22T15:15:01.208+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-07-22T15:15:01.221+0000] {taskinstance.py:2330} INFO - Executing <Task(DockerOperator): run_spark_job_container> on 2025-07-22 15:00:00+00:00
+[2025-07-22T15:15:01.226+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=162) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-07-22T15:15:01.227+0000] {standard_task_runner.py:63} INFO - Started process 164 to run task
+[2025-07-22T15:15:01.227+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'flight_data_pipeline', 'run_spark_job_container', 'scheduled__2025-07-22T15:00:00+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/flight_pipeline_dag.py', '--cfg-path', '/tmp/tmpzh8ksyg0']
+[2025-07-22T15:15:01.229+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask run_spark_job_container
+[2025-07-22T15:15:01.268+0000] {task_command.py:426} INFO - Running <TaskInstance: flight_data_pipeline.run_spark_job_container scheduled__2025-07-22T15:00:00+00:00 [running]> on host 2662e370c470
+[2025-07-22T15:15:01.334+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flight_data_pipeline' AIRFLOW_CTX_TASK_ID='run_spark_job_container' AIRFLOW_CTX_EXECUTION_DATE='2025-07-22T15:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-22T15:00:00+00:00'
+[2025-07-22T15:15:01.335+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-22T15:15:01.349+0000] {docker.py:366} INFO - Starting docker container from image realtime-flight-pipeline/spark-job:0.1
+[2025-07-22T15:15:01.352+0000] {docker.py:374} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2025-07-22T15:15:01.547+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m15:15:01.54 [0m[38;5;2mINFO [0m ==>
+[2025-07-22T15:15:01.548+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m15:15:01.54 [0m[38;5;2mINFO [0m ==> [1mWelcome to the Bitnami spark container[0m
+[2025-07-22T15:15:01.550+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m15:15:01.54 [0m[38;5;2mINFO [0m ==> Subscribe to project updates by watching [1mhttps://github.com/bitnami/containers[0m
+[2025-07-22T15:15:01.551+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m15:15:01.55 [0m[38;5;2mINFO [0m ==> Submit issues and feature requests at [1mhttps://github.com/bitnami/containers/issues[0m
+[2025-07-22T15:15:01.552+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m15:15:01.55 [0m[38;5;2mINFO [0m ==> Upgrade to Tanzu Application Catalog for production environments to access custom-configured and pre-packaged software components. Gain enhanced features, including Software Bill of Materials (SBOM), CVE scan result reports, and VEX documents. To learn more, visit [1mhttps://bitnami.com/enterprise[0m
+[2025-07-22T15:15:01.553+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m15:15:01.55 [0m[38;5;2mINFO [0m ==>
+[2025-07-22T15:15:01.560+0000] {docker.py:436} INFO - 
+[2025-07-22T15:15:03.699+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SparkContext: Running Spark version 3.5.1
+[2025-07-22T15:15:03.700+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-07-22T15:15:03.701+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SparkContext: Java version 17.0.12
+[2025-07-22T15:15:03.732+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO ResourceUtils: ==============================================================
+[2025-07-22T15:15:03.732+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-07-22T15:15:03.732+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO ResourceUtils: ==============================================================
+[2025-07-22T15:15:03.733+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SparkContext: Submitted application: FlightDataProcessing
+[2025-07-22T15:15:03.751+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-07-22T15:15:03.761+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO ResourceProfile: Limiting resource is cpu
+[2025-07-22T15:15:03.761+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-07-22T15:15:03.800+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SecurityManager: Changing view acls to: spark
+[2025-07-22T15:15:03.801+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SecurityManager: Changing modify acls to: spark
+[2025-07-22T15:15:03.801+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SecurityManager: Changing view acls groups to:
+[2025-07-22T15:15:03.802+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SecurityManager: Changing modify acls groups to:
+[2025-07-22T15:15:03.802+0000] {docker.py:436} INFO - 25/07/22 15:15:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+[2025-07-22T15:15:03.845+0000] {docker.py:436} INFO - 25/07/22 15:15:03 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-07-22T15:15:04.056+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO Utils: Successfully started service 'sparkDriver' on port 35287.
+[2025-07-22T15:15:04.078+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO SparkEnv: Registering MapOutputTracker
+[2025-07-22T15:15:04.107+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO SparkEnv: Registering BlockManagerMaster
+[2025-07-22T15:15:04.121+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-07-22T15:15:04.122+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-07-22T15:15:04.126+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-07-22T15:15:04.144+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-7e659641-56cd-44f3-9890-83886ce98b25
+[2025-07-22T15:15:04.156+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-07-22T15:15:04.170+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-07-22T15:15:04.276+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-07-22T15:15:04.326+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-07-22T15:15:04.422+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO Executor: Starting executor ID driver on host 24af2a16f4a2
+[2025-07-22T15:15:04.423+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO Executor: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-07-22T15:15:04.423+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO Executor: Java version 17.0.12
+[2025-07-22T15:15:04.439+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-07-22T15:15:04.440+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@25e00935 for default.
+[2025-07-22T15:15:04.457+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41103.
+[2025-07-22T15:15:04.457+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO NettyBlockTransferService: Server created on 24af2a16f4a2:41103
+[2025-07-22T15:15:04.460+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-07-22T15:15:04.468+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 24af2a16f4a2, 41103, None)
+[2025-07-22T15:15:04.472+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO BlockManagerMasterEndpoint: Registering block manager 24af2a16f4a2:41103 with 434.4 MiB RAM, BlockManagerId(driver, 24af2a16f4a2, 41103, None)
+[2025-07-22T15:15:04.474+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 24af2a16f4a2, 41103, None)
+[2025-07-22T15:15:04.475+0000] {docker.py:436} INFO - 25/07/22 15:15:04 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 24af2a16f4a2, 41103, None)
+[2025-07-22T15:15:04.708+0000] {docker.py:436} INFO - Sessão Spark criada com sucesso!
+[2025-07-22T15:15:06.643+0000] {docker.py:436} INFO - 25/07/22 15:15:06 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-07-22T15:15:06.649+0000] {docker.py:436} INFO - 25/07/22 15:15:06 INFO SharedState: Warehouse path is 'file:/app/spark-warehouse'.
+[2025-07-22T15:15:07.495+0000] {docker.py:436} INFO - Schema do DataFrame de Voos (definido por nós):
+[2025-07-22T15:15:07.509+0000] {docker.py:436} INFO - root
+ |-- icao24: string (nullable = true)
+ |-- callsign: string (nullable = true)
+ |-- origin_country: string (nullable = true)
+ |-- time_position: long (nullable = true)
+ |-- last_contact: long (nullable = true)
+ |-- longitude: double (nullable = true)
+ |-- latitude: double (nullable = true)
+ |-- baro_altitude: double (nullable = true)
+ |-- on_ground: boolean (nullable = true)
+ |-- velocity: double (nullable = true)
+ |-- true_track: double (nullable = true)
+ |-- vertical_rate: double (nullable = true)
+ |-- sensors: string (nullable = true)
+ |-- geo_altitude: double (nullable = true)
+ |-- squawk: string (nullable = true)
+ |-- spi: boolean (nullable = true)
+ |-- position_source: long (nullable = true)
+
+Alguns dados de voos recebidos (após limpeza):
+[2025-07-22T15:15:08.085+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO CodeGenerator: Code generated in 154.905155 ms
+[2025-07-22T15:15:08.123+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+[2025-07-22T15:15:08.135+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: Got job 0 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+[2025-07-22T15:15:08.135+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: Final stage: ResultStage 0 (showString at NativeMethodAccessorImpl.java:0)
+[2025-07-22T15:15:08.136+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: Parents of final stage: List()
+[2025-07-22T15:15:08.136+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: Missing parents: List()
+[2025-07-22T15:15:08.138+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[6] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2025-07-22T15:15:08.201+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 18.5 KiB, free 434.4 MiB)
+[2025-07-22T15:15:08.225+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 8.0 KiB, free 434.4 MiB)
+[2025-07-22T15:15:08.229+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 24af2a16f4a2:41103 (size: 8.0 KiB, free: 434.4 MiB)
+[2025-07-22T15:15:08.232+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+[2025-07-22T15:15:08.241+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[6] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2025-07-22T15:15:08.242+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+[2025-07-22T15:15:08.274+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (24af2a16f4a2, executor driver, partition 0, PROCESS_LOCAL, 125884 bytes)
+[2025-07-22T15:15:08.284+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+[2025-07-22T15:15:08.849+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO CodeGenerator: Code generated in 24.869632 ms
+[2025-07-22T15:15:08.950+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2751 bytes result sent to driver
+[2025-07-22T15:15:08.956+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 691 ms on 24af2a16f4a2 (executor driver) (1/1)
+[2025-07-22T15:15:08.958+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2025-07-22T15:15:08.961+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 59543
+[2025-07-22T15:15:08.964+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: ResultStage 0 (showString at NativeMethodAccessorImpl.java:0) finished in 0.818 s
+[2025-07-22T15:15:08.966+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-07-22T15:15:08.966+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+[2025-07-22T15:15:08.967+0000] {docker.py:436} INFO - 25/07/22 15:15:08 INFO DAGScheduler: Job 0 finished: showString at NativeMethodAccessorImpl.java:0, took 0.844204 s
+[2025-07-22T15:15:09.639+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO CodeGenerator: Code generated in 23.587185 ms
+[2025-07-22T15:15:09.651+0000] {docker.py:436} INFO - +------+--------+--------------+-------------+------------+---------+--------+-------------+---------+--------+----------+-------------+-------+------------+------+-----+---------------+
+|icao24|callsign|origin_country|time_position|last_contact|longitude|latitude|baro_altitude|on_ground|velocity|true_track|vertical_rate|sensors|geo_altitude|squawk|spi  |position_source|
++------+--------+--------------+-------------+------------+---------+--------+-------------+---------+--------+----------+-------------+-------+------------+------+-----+---------------+
+|c07d0b|CGVJE   |Canada        |1753197298   |1753197298  |-73.8298 |45.5635 |533.4        |false    |49.4    |144.32    |0.0          |NULL   |563.88      |NULL  |false|0              |
+|a5f852|RTY484  |United States |1753197298   |1753197298  |-105.0057|40.4413 |NULL         |true     |0.0     |247.5     |NULL         |NULL   |NULL        |NULL  |false|0              |
+|ab1644|UAL2464 |United States |1753197298   |1753197298  |-95.2106 |30.0072 |563.88       |false    |89.0    |270.33    |1.3          |NULL   |617.22      |2177  |false|0              |
+|aa3cbe|N759PA  |United States |1753197297   |1753197297  |-111.8479|41.8087 |1516.38      |false    |41.7    |357.88    |2.93         |NULL   |1539.24     |NULL  |false|0              |
+|39de4d|TVF33SN |France        |1753197298   |1753197298  |1.0224   |47.3783 |7962.9       |false    |216.27  |27.17     |-4.88        |NULL   |8321.04     |1000  |false|0              |
++------+--------+--------------+-------------+------------+---------+--------+-------------+---------+--------+----------+-------------+-------+------------+------+-----+---------------+
+only showing top 5 rows
+[2025-07-22T15:15:09.688+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 24af2a16f4a2:41103 in memory (size: 8.0 KiB, free: 434.4 MiB)
+[2025-07-22T15:15:09.711+0000] {docker.py:436} INFO - DataFrame com a coluna de tempo transformada:
+[2025-07-22T15:15:09.815+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO CodeGenerator: Code generated in 13.771609 ms
+[2025-07-22T15:15:09.827+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+[2025-07-22T15:15:09.828+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO DAGScheduler: Got job 1 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+25/07/22 15:15:09 INFO DAGScheduler: Final stage: ResultStage 1 (showString at NativeMethodAccessorImpl.java:0)
+[2025-07-22T15:15:09.829+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO DAGScheduler: Parents of final stage: List()
+[2025-07-22T15:15:09.829+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO DAGScheduler: Missing parents: List()
+[2025-07-22T15:15:09.830+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[8] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2025-07-22T15:15:09.834+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 15.4 KiB, free 434.4 MiB)
+[2025-07-22T15:15:09.837+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 7.8 KiB, free 434.4 MiB)
+[2025-07-22T15:15:09.838+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 24af2a16f4a2:41103 (size: 7.8 KiB, free: 434.4 MiB)
+[2025-07-22T15:15:09.838+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+[2025-07-22T15:15:09.839+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[8] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2025-07-22T15:15:09.840+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+[2025-07-22T15:15:09.842+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (24af2a16f4a2, executor driver, partition 0, PROCESS_LOCAL, 125884 bytes)
+[2025-07-22T15:15:09.843+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+[2025-07-22T15:15:09.869+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO CodeGenerator: Code generated in 13.726939 ms
+[2025-07-22T15:15:09.956+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 2128 bytes result sent to driver
+[2025-07-22T15:15:09.958+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 117 ms on 24af2a16f4a2 (executor driver) (1/1)
+[2025-07-22T15:15:09.959+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+[2025-07-22T15:15:09.959+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO DAGScheduler: ResultStage 1 (showString at NativeMethodAccessorImpl.java:0) finished in 0.129 s
+[2025-07-22T15:15:09.960+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-07-22T15:15:09.961+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+[2025-07-22T15:15:09.961+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO DAGScheduler: Job 1 finished: showString at NativeMethodAccessorImpl.java:0, took 0.133366 s
+[2025-07-22T15:15:09.975+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO CodeGenerator: Code generated in 9.320189 ms
+[2025-07-22T15:15:09.977+0000] {docker.py:436} INFO - +--------+--------------+---------+--------+----------------------+
+|callsign|origin_country|longitude|latitude|time_position_readable|
++--------+--------------+---------+--------+----------------------+
+|CGVJE   |Canada        |-73.8298 |45.5635 |2025-07-22 15:14:58   |
+|RTY484  |United States |-105.0057|40.4413 |2025-07-22 15:14:58   |
+|UAL2464 |United States |-95.2106 |30.0072 |2025-07-22 15:14:58   |
+|N759PA  |United States |-111.8479|41.8087 |2025-07-22 15:14:57   |
+|TVF33SN |France        |1.0224   |47.3783 |2025-07-22 15:14:58   |
++--------+--------------+---------+--------+----------------------+
+only showing top 5 rows
+[2025-07-22T15:15:09.978+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-07-22T15:15:09.986+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO SparkUI: Stopped Spark web UI at http://24af2a16f4a2:4040
+[2025-07-22T15:15:09.994+0000] {docker.py:436} INFO - 25/07/22 15:15:09 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-07-22T15:15:10.005+0000] {docker.py:436} INFO - 25/07/22 15:15:10 INFO MemoryStore: MemoryStore cleared
+[2025-07-22T15:15:10.005+0000] {docker.py:436} INFO - 25/07/22 15:15:10 INFO BlockManager: BlockManager stopped
+[2025-07-22T15:15:10.008+0000] {docker.py:436} INFO - 25/07/22 15:15:10 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-07-22T15:15:10.009+0000] {docker.py:436} INFO - 25/07/22 15:15:10 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-07-22T15:15:10.017+0000] {docker.py:436} INFO - 25/07/22 15:15:10 INFO SparkContext: Successfully stopped SparkContext
+[2025-07-22T15:15:10.999+0000] {docker.py:436} INFO - 25/07/22 15:15:10 INFO ShutdownHookManager: Shutdown hook called
+[2025-07-22T15:15:11.000+0000] {docker.py:436} INFO - 25/07/22 15:15:10 INFO ShutdownHookManager: Deleting directory /tmp/spark-a360dbfd-8e70-4aa0-a335-ff2a96fce0ec
+[2025-07-22T15:15:11.002+0000] {docker.py:436} INFO - 25/07/22 15:15:11 INFO ShutdownHookManager: Deleting directory /tmp/spark-590de4f2-9b2c-4c0d-9374-4bcf8b089739/pyspark-90ef3b38-7af5-46de-89bc-f783359b52c8
+[2025-07-22T15:15:11.005+0000] {docker.py:436} INFO - 25/07/22 15:15:11 INFO ShutdownHookManager: Deleting directory /tmp/spark-590de4f2-9b2c-4c0d-9374-4bcf8b089739
+[2025-07-22T15:15:11.400+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-22T15:15:11.416+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=flight_data_pipeline, task_id=run_spark_job_container, run_id=scheduled__2025-07-22T15:00:00+00:00, execution_date=20250722T150000, start_date=20250722T151501, end_date=20250722T151511
+[2025-07-22T15:15:11.447+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-22T15:15:11.459+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-22T15:15:11.461+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
