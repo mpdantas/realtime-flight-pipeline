@@ -1,0 +1,271 @@
+[2025-07-22T18:11:32.686+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-22T18:11:32.710+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_data_pipeline.run_spark_job_container manual__2025-07-22T18:11:30.998840+00:00 [queued]>
+[2025-07-22T18:11:32.718+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_data_pipeline.run_spark_job_container manual__2025-07-22T18:11:30.998840+00:00 [queued]>
+[2025-07-22T18:11:32.719+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-07-22T18:11:32.732+0000] {taskinstance.py:2330} INFO - Executing <Task(DockerOperator): run_spark_job_container> on 2025-07-22 18:11:30.998840+00:00
+[2025-07-22T18:11:32.738+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1429) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-07-22T18:11:32.741+0000] {standard_task_runner.py:63} INFO - Started process 1431 to run task
+[2025-07-22T18:11:32.739+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'flight_data_pipeline', 'run_spark_job_container', 'manual__2025-07-22T18:11:30.998840+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/flight_pipeline_dag.py', '--cfg-path', '/tmp/tmpufcg_1gg']
+[2025-07-22T18:11:32.742+0000] {standard_task_runner.py:91} INFO - Job 42: Subtask run_spark_job_container
+[2025-07-22T18:11:32.789+0000] {task_command.py:426} INFO - Running <TaskInstance: flight_data_pipeline.run_spark_job_container manual__2025-07-22T18:11:30.998840+00:00 [running]> on host d77a53274a34
+[2025-07-22T18:11:32.877+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flight_data_pipeline' AIRFLOW_CTX_TASK_ID='run_spark_job_container' AIRFLOW_CTX_EXECUTION_DATE='2025-07-22T18:11:30.998840+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-22T18:11:30.998840+00:00'
+[2025-07-22T18:11:32.880+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-22T18:11:32.900+0000] {docker.py:366} INFO - Starting docker container from image realtime-flight-pipeline/spark-job:0.6
+[2025-07-22T18:11:32.904+0000] {docker.py:374} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2025-07-22T18:11:33.134+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m18:11:33.13 [0m[38;5;2mINFO [0m ==>
+[2025-07-22T18:11:33.136+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m18:11:33.13 [0m[38;5;2mINFO [0m ==> [1mWelcome to the Bitnami spark container[0m
+[2025-07-22T18:11:33.137+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m18:11:33.13 [0m[38;5;2mINFO [0m ==> Subscribe to project updates by watching [1mhttps://github.com/bitnami/containers[0m
+[2025-07-22T18:11:33.138+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m18:11:33.13 [0m[38;5;2mINFO [0m ==> Submit issues and feature requests at [1mhttps://github.com/bitnami/containers/issues[0m
+[2025-07-22T18:11:33.139+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m18:11:33.13 [0m[38;5;2mINFO [0m ==> Upgrade to Tanzu Application Catalog for production environments to access custom-configured and pre-packaged software components. Gain enhanced features, including Software Bill of Materials (SBOM), CVE scan result reports, and VEX documents. To learn more, visit [1mhttps://bitnami.com/enterprise[0m
+[2025-07-22T18:11:33.140+0000] {docker.py:436} INFO - [38;5;6mspark [38;5;5m18:11:33.14 [0m[38;5;2mINFO [0m ==>
+[2025-07-22T18:11:33.143+0000] {docker.py:436} INFO - 
+[2025-07-22T18:11:35.599+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SparkContext: Running Spark version 3.5.1
+[2025-07-22T18:11:35.601+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-07-22T18:11:35.601+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SparkContext: Java version 17.0.12
+[2025-07-22T18:11:35.622+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO ResourceUtils: ==============================================================
+[2025-07-22T18:11:35.623+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-07-22T18:11:35.623+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO ResourceUtils: ==============================================================
+[2025-07-22T18:11:35.624+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SparkContext: Submitted application: FlightDataProcessing
+[2025-07-22T18:11:35.640+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-07-22T18:11:35.647+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO ResourceProfile: Limiting resource is cpu
+[2025-07-22T18:11:35.648+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-07-22T18:11:35.681+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SecurityManager: Changing view acls to: root,spark
+[2025-07-22T18:11:35.682+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SecurityManager: Changing modify acls to: root,spark
+[2025-07-22T18:11:35.682+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SecurityManager: Changing view acls groups to:
+[2025-07-22T18:11:35.682+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SecurityManager: Changing modify acls groups to:
+[2025-07-22T18:11:35.683+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root, spark; groups with view permissions: EMPTY; users with modify permissions: root, spark; groups with modify permissions: EMPTY
+[2025-07-22T18:11:35.724+0000] {docker.py:436} INFO - 25/07/22 18:11:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-07-22T18:11:35.941+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO Utils: Successfully started service 'sparkDriver' on port 41435.
+[2025-07-22T18:11:35.963+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SparkEnv: Registering MapOutputTracker
+[2025-07-22T18:11:35.989+0000] {docker.py:436} INFO - 25/07/22 18:11:35 INFO SparkEnv: Registering BlockManagerMaster
+[2025-07-22T18:11:36.001+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-07-22T18:11:36.002+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-07-22T18:11:36.005+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-07-22T18:11:36.019+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-7cbd283c-4ee6-4fab-8b4f-49c44bf37a67
+[2025-07-22T18:11:36.029+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-07-22T18:11:36.042+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-07-22T18:11:36.131+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-07-22T18:11:36.175+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-07-22T18:11:36.261+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO Executor: Starting executor ID driver on host 0efa5108fca0
+[2025-07-22T18:11:36.262+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO Executor: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-07-22T18:11:36.262+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO Executor: Java version 17.0.12
+[2025-07-22T18:11:36.268+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-07-22T18:11:36.269+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@24228894 for default.
+[2025-07-22T18:11:36.284+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39917.
+25/07/22 18:11:36 INFO NettyBlockTransferService: Server created on 0efa5108fca0:39917
+[2025-07-22T18:11:36.286+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-07-22T18:11:36.290+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 0efa5108fca0, 39917, None)
+[2025-07-22T18:11:36.293+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO BlockManagerMasterEndpoint: Registering block manager 0efa5108fca0:39917 with 434.4 MiB RAM, BlockManagerId(driver, 0efa5108fca0, 39917, None)
+[2025-07-22T18:11:36.294+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 0efa5108fca0, 39917, None)
+[2025-07-22T18:11:36.295+0000] {docker.py:436} INFO - 25/07/22 18:11:36 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 0efa5108fca0, 39917, None)
+[2025-07-22T18:11:36.559+0000] {docker.py:436} INFO - Sessão Spark criada com sucesso!
+[2025-07-22T18:11:38.362+0000] {docker.py:436} INFO - 25/07/22 18:11:38 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-07-22T18:11:38.367+0000] {docker.py:436} INFO - 25/07/22 18:11:38 INFO SharedState: Warehouse path is 'file:/app/spark-warehouse'.
+[2025-07-22T18:11:39.379+0000] {docker.py:436} INFO - Iniciando escrita dos dados no PostgreSQL...
+[2025-07-22T18:11:40.059+0000] {docker.py:436} INFO - 25/07/22 18:11:40 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-07-22T18:11:40.331+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO CodeGenerator: Code generated in 170.109728 ms
+[2025-07-22T18:11:40.449+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO SparkContext: Starting job: jdbc at NativeMethodAccessorImpl.java:0
+[2025-07-22T18:11:40.464+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO DAGScheduler: Got job 0 (jdbc at NativeMethodAccessorImpl.java:0) with 12 output partitions
+[2025-07-22T18:11:40.464+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO DAGScheduler: Final stage: ResultStage 0 (jdbc at NativeMethodAccessorImpl.java:0)
+[2025-07-22T18:11:40.465+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO DAGScheduler: Parents of final stage: List()
+[2025-07-22T18:11:40.465+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO DAGScheduler: Missing parents: List()
+[2025-07-22T18:11:40.468+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[8] at jdbc at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2025-07-22T18:11:40.581+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 39.3 KiB, free 434.4 MiB)
+[2025-07-22T18:11:40.611+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 17.9 KiB, free 434.3 MiB)
+[2025-07-22T18:11:40.614+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 0efa5108fca0:39917 (size: 17.9 KiB, free: 434.4 MiB)
+[2025-07-22T18:11:40.618+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+[2025-07-22T18:11:40.631+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO DAGScheduler: Submitting 12 missing tasks from ResultStage 0 (MapPartitionsRDD[8] at jdbc at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+[2025-07-22T18:11:40.632+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSchedulerImpl: Adding task set 0.0 with 12 tasks resource profile 0
+[2025-07-22T18:11:40.669+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (0efa5108fca0, executor driver, partition 0, PROCESS_LOCAL, 119267 bytes)
+[2025-07-22T18:11:40.672+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (0efa5108fca0, executor driver, partition 1, PROCESS_LOCAL, 120523 bytes)
+[2025-07-22T18:11:40.673+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (0efa5108fca0, executor driver, partition 2, PROCESS_LOCAL, 120979 bytes)
+[2025-07-22T18:11:40.675+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (0efa5108fca0, executor driver, partition 3, PROCESS_LOCAL, 120350 bytes)
+[2025-07-22T18:11:40.676+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (0efa5108fca0, executor driver, partition 4, PROCESS_LOCAL, 119861 bytes)
+[2025-07-22T18:11:40.676+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (0efa5108fca0, executor driver, partition 5, PROCESS_LOCAL, 119535 bytes)
+[2025-07-22T18:11:40.677+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (0efa5108fca0, executor driver, partition 6, PROCESS_LOCAL, 120287 bytes)
+[2025-07-22T18:11:40.677+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (0efa5108fca0, executor driver, partition 7, PROCESS_LOCAL, 120189 bytes)
+[2025-07-22T18:11:40.678+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (0efa5108fca0, executor driver, partition 8, PROCESS_LOCAL, 120255 bytes)
+[2025-07-22T18:11:40.678+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (0efa5108fca0, executor driver, partition 9, PROCESS_LOCAL, 120436 bytes)
+[2025-07-22T18:11:40.679+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 10.0 in stage 0.0 (TID 10) (0efa5108fca0, executor driver, partition 10, PROCESS_LOCAL, 120499 bytes)
+[2025-07-22T18:11:40.679+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO TaskSetManager: Starting task 11.0 in stage 0.0 (TID 11) (0efa5108fca0, executor driver, partition 11, PROCESS_LOCAL, 121432 bytes)
+[2025-07-22T18:11:40.688+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+25/07/22 18:11:40 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+25/07/22 18:11:40 INFO Executor: Running task 5.0 in stage 0.0 (TID 5)
+25/07/22 18:11:40 INFO Executor: Running task 7.0 in stage 0.0 (TID 7)
+25/07/22 18:11:40 INFO Executor: Running task 6.0 in stage 0.0 (TID 6)
+[2025-07-22T18:11:40.689+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO Executor: Running task 3.0 in stage 0.0 (TID 3)
+[2025-07-22T18:11:40.690+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO Executor: Running task 8.0 in stage 0.0 (TID 8)
+[2025-07-22T18:11:40.690+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+[2025-07-22T18:11:40.691+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO Executor: Running task 4.0 in stage 0.0 (TID 4)
+[2025-07-22T18:11:40.691+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO Executor: Running task 9.0 in stage 0.0 (TID 9)
+[2025-07-22T18:11:40.692+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO Executor: Running task 10.0 in stage 0.0 (TID 10)
+[2025-07-22T18:11:40.693+0000] {docker.py:436} INFO - 25/07/22 18:11:40 INFO Executor: Running task 11.0 in stage 0.0 (TID 11)
+[2025-07-22T18:11:41.466+0000] {docker.py:436} INFO - 25/07/22 18:11:41 INFO CodeGenerator: Code generated in 29.635503 ms
+[2025-07-22T18:11:42.402+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO CodeGenerator: Code generated in 27.059455 ms
+[2025-07-22T18:11:42.583+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 717, boot = 534, init = 180, finish = 3
+[2025-07-22T18:11:42.586+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 829, boot = 579, init = 247, finish = 3
+[2025-07-22T18:11:42.597+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 875, boot = 613, init = 260, finish = 2
+[2025-07-22T18:11:42.598+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 812, boot = 573, init = 236, finish = 3
+[2025-07-22T18:11:42.602+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 845, boot = 604, init = 238, finish = 3
+25/07/22 18:11:42 INFO PythonRunner: Times: total = 730, boot = 531, init = 195, finish = 4
+25/07/22 18:11:42 INFO PythonRunner: Times: total = 808, boot = 550, init = 254, finish = 4
+25/07/22 18:11:42 INFO PythonRunner: Times: total = 772, boot = 560, init = 210, finish = 2
+[2025-07-22T18:11:42.603+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 741, boot = 539, init = 198, finish = 4
+[2025-07-22T18:11:42.607+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 773, boot = 555, init = 215, finish = 3
+[2025-07-22T18:11:42.608+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 724, boot = 528, init = 193, finish = 3
+[2025-07-22T18:11:42.616+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonRunner: Times: total = 813, boot = 586, init = 224, finish = 3
+[2025-07-22T18:11:42.700+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO Executor: Finished task 6.0 in stage 0.0 (TID 6). 1806 bytes result sent to driver
+25/07/22 18:11:42 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 1806 bytes result sent to driver
+25/07/22 18:11:42 INFO Executor: Finished task 4.0 in stage 0.0 (TID 4). 1806 bytes result sent to driver
+25/07/22 18:11:42 INFO Executor: Finished task 5.0 in stage 0.0 (TID 5). 1806 bytes result sent to driver
+25/07/22 18:11:42 INFO Executor: Finished task 10.0 in stage 0.0 (TID 10). 1806 bytes result sent to driver
+[2025-07-22T18:11:42.702+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO Executor: Finished task 3.0 in stage 0.0 (TID 3). 1806 bytes result sent to driver
+25/07/22 18:11:42 INFO Executor: Finished task 8.0 in stage 0.0 (TID 8). 1806 bytes result sent to driver
+[2025-07-22T18:11:42.702+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1806 bytes result sent to driver
+25/07/22 18:11:42 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 1806 bytes result sent to driver
+[2025-07-22T18:11:42.703+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO Executor: Finished task 7.0 in stage 0.0 (TID 7). 1806 bytes result sent to driver
+[2025-07-22T18:11:42.703+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO Executor: Finished task 11.0 in stage 0.0 (TID 11). 1806 bytes result sent to driver
+[2025-07-22T18:11:42.704+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO Executor: Finished task 9.0 in stage 0.0 (TID 9). 1806 bytes result sent to driver
+[2025-07-22T18:11:42.709+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 8) in 2032 ms on 0efa5108fca0 (executor driver) (1/12)
+[2025-07-22T18:11:42.711+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 10.0 in stage 0.0 (TID 10) in 2032 ms on 0efa5108fca0 (executor driver) (2/12)
+[2025-07-22T18:11:42.712+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 2051 ms on 0efa5108fca0 (executor driver) (3/12)
+[2025-07-22T18:11:42.712+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 2039 ms on 0efa5108fca0 (executor driver) (4/12)
+[2025-07-22T18:11:42.713+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 2039 ms on 0efa5108fca0 (executor driver) (5/12)
+[2025-07-22T18:11:42.714+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 11.0 in stage 0.0 (TID 11) in 2034 ms on 0efa5108fca0 (executor driver) (6/12)
+[2025-07-22T18:11:42.714+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 2037 ms on 0efa5108fca0 (executor driver) (7/12)
+[2025-07-22T18:11:42.715+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 9) in 2036 ms on 0efa5108fca0 (executor driver) (8/12)
+[2025-07-22T18:11:42.715+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 2043 ms on 0efa5108fca0 (executor driver) (9/12)
+[2025-07-22T18:11:42.716+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 2041 ms on 0efa5108fca0 (executor driver) (10/12)
+[2025-07-22T18:11:42.716+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 2040 ms on 0efa5108fca0 (executor driver) (11/12)
+[2025-07-22T18:11:42.717+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 2040 ms on 0efa5108fca0 (executor driver) (12/12)
+[2025-07-22T18:11:42.717+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 41861
+[2025-07-22T18:11:42.718+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2025-07-22T18:11:42.726+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: ResultStage 0 (jdbc at NativeMethodAccessorImpl.java:0) finished in 2.247 s
+[2025-07-22T18:11:42.729+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-07-22T18:11:42.729+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+[2025-07-22T18:11:42.731+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: Job 0 finished: jdbc at NativeMethodAccessorImpl.java:0, took 2.281409 s
+[2025-07-22T18:11:42.955+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO CodeGenerator: Code generated in 12.744164 ms
+[2025-07-22T18:11:42.980+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: Registering RDD 10 (count at NativeMethodAccessorImpl.java:0) as input to shuffle 0
+[2025-07-22T18:11:42.983+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: Got map stage job 1 (count at NativeMethodAccessorImpl.java:0) with 12 output partitions
+[2025-07-22T18:11:42.984+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: Final stage: ShuffleMapStage 1 (count at NativeMethodAccessorImpl.java:0)
+[2025-07-22T18:11:42.984+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: Parents of final stage: List()
+[2025-07-22T18:11:42.985+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: Missing parents: List()
+[2025-07-22T18:11:42.985+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[10] at count at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2025-07-22T18:11:42.999+0000] {docker.py:436} INFO - 25/07/22 18:11:42 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 17.1 KiB, free 434.3 MiB)
+[2025-07-22T18:11:43.001+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 8.8 KiB, free 434.3 MiB)
+[2025-07-22T18:11:43.002+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 0efa5108fca0:39917 (size: 8.8 KiB, free: 434.4 MiB)
+[2025-07-22T18:11:43.002+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+[2025-07-22T18:11:43.004+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: Submitting 12 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[10] at count at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+25/07/22 18:11:43 INFO TaskSchedulerImpl: Adding task set 1.0 with 12 tasks resource profile 0
+[2025-07-22T18:11:43.007+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 12) (0efa5108fca0, executor driver, partition 0, PROCESS_LOCAL, 119256 bytes)
+[2025-07-22T18:11:43.008+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 13) (0efa5108fca0, executor driver, partition 1, PROCESS_LOCAL, 120512 bytes)
+[2025-07-22T18:11:43.008+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 14) (0efa5108fca0, executor driver, partition 2, PROCESS_LOCAL, 120968 bytes)
+[2025-07-22T18:11:43.011+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 15) (0efa5108fca0, executor driver, partition 3, PROCESS_LOCAL, 120339 bytes)
+[2025-07-22T18:11:43.012+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 4.0 in stage 1.0 (TID 16) (0efa5108fca0, executor driver, partition 4, PROCESS_LOCAL, 119850 bytes)
+[2025-07-22T18:11:43.012+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 5.0 in stage 1.0 (TID 17) (0efa5108fca0, executor driver, partition 5, PROCESS_LOCAL, 119524 bytes)
+[2025-07-22T18:11:43.013+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 6.0 in stage 1.0 (TID 18) (0efa5108fca0, executor driver, partition 6, PROCESS_LOCAL, 120276 bytes)
+[2025-07-22T18:11:43.014+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 7.0 in stage 1.0 (TID 19) (0efa5108fca0, executor driver, partition 7, PROCESS_LOCAL, 120178 bytes)
+[2025-07-22T18:11:43.014+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 8.0 in stage 1.0 (TID 20) (0efa5108fca0, executor driver, partition 8, PROCESS_LOCAL, 120244 bytes)
+[2025-07-22T18:11:43.015+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 9.0 in stage 1.0 (TID 21) (0efa5108fca0, executor driver, partition 9, PROCESS_LOCAL, 120425 bytes)
+[2025-07-22T18:11:43.015+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 10.0 in stage 1.0 (TID 22) (0efa5108fca0, executor driver, partition 10, PROCESS_LOCAL, 120488 bytes)
+[2025-07-22T18:11:43.016+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 11.0 in stage 1.0 (TID 23) (0efa5108fca0, executor driver, partition 11, PROCESS_LOCAL, 121421 bytes)
+[2025-07-22T18:11:43.016+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 0.0 in stage 1.0 (TID 12)
+25/07/22 18:11:43 INFO Executor: Running task 2.0 in stage 1.0 (TID 14)
+[2025-07-22T18:11:43.017+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 1.0 in stage 1.0 (TID 13)
+25/07/22 18:11:43 INFO Executor: Running task 5.0 in stage 1.0 (TID 17)
+[2025-07-22T18:11:43.018+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 6.0 in stage 1.0 (TID 18)
+[2025-07-22T18:11:43.018+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 8.0 in stage 1.0 (TID 20)
+[2025-07-22T18:11:43.019+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 9.0 in stage 1.0 (TID 21)
+[2025-07-22T18:11:43.019+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 11.0 in stage 1.0 (TID 23)
+25/07/22 18:11:43 INFO Executor: Running task 7.0 in stage 1.0 (TID 19)
+[2025-07-22T18:11:43.020+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 3.0 in stage 1.0 (TID 15)
+[2025-07-22T18:11:43.020+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 4.0 in stage 1.0 (TID 16)
+[2025-07-22T18:11:43.021+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 10.0 in stage 1.0 (TID 22)
+[2025-07-22T18:11:43.091+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO CodeGenerator: Code generated in 51.404281 ms
+[2025-07-22T18:11:43.215+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 135, boot = -1390, init = 1519, finish = 6
+[2025-07-22T18:11:43.222+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 147, boot = -1291, init = 1432, finish = 6
+[2025-07-22T18:11:43.229+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 138, boot = -1250, init = 1384, finish = 4
+[2025-07-22T18:11:43.247+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 142, boot = -1303, init = 1437, finish = 8
+25/07/22 18:11:43 INFO PythonRunner: Times: total = 134, boot = -1379, init = 1509, finish = 4
+[2025-07-22T18:11:43.248+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 142, boot = -1277, init = 1410, finish = 9
+[2025-07-22T18:11:43.252+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 198, boot = -1339, init = 1530, finish = 7
+[2025-07-22T18:11:43.253+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 165, boot = -1341, init = 1490, finish = 16
+[2025-07-22T18:11:43.258+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 9.0 in stage 1.0 (TID 21). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.259+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 8.0 in stage 1.0 (TID 20). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.260+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 218, boot = -1304, init = 1514, finish = 8
+[2025-07-22T18:11:43.261+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 0.0 in stage 1.0 (TID 12). 2418 bytes result sent to driver
+25/07/22 18:11:43 INFO Executor: Finished task 1.0 in stage 1.0 (TID 13). 2418 bytes result sent to driver
+[2025-07-22T18:11:43.261+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 3.0 in stage 1.0 (TID 15). 2418 bytes result sent to driver
+[2025-07-22T18:11:43.262+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 10.0 in stage 1.0 (TID 22). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.263+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 177, boot = -1375, init = 1548, finish = 4
+[2025-07-22T18:11:43.263+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 4.0 in stage 1.0 (TID 16). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.265+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 5.0 in stage 1.0 (TID 17). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.266+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 7.0 in stage 1.0 (TID 19). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.267+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 8.0 in stage 1.0 (TID 20) in 253 ms on 0efa5108fca0 (executor driver) (1/12)
+[2025-07-22T18:11:43.269+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 13) in 260 ms on 0efa5108fca0 (executor driver) (2/12)
+[2025-07-22T18:11:43.270+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 9.0 in stage 1.0 (TID 21) in 253 ms on 0efa5108fca0 (executor driver) (3/12)
+[2025-07-22T18:11:43.271+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 12) in 262 ms on 0efa5108fca0 (executor driver) (4/12)
+[2025-07-22T18:11:43.271+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 4.0 in stage 1.0 (TID 16) in 257 ms on 0efa5108fca0 (executor driver) (5/12)
+[2025-07-22T18:11:43.272+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 15) in 261 ms on 0efa5108fca0 (executor driver) (6/12)
+[2025-07-22T18:11:43.272+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 5.0 in stage 1.0 (TID 17) in 259 ms on 0efa5108fca0 (executor driver) (7/12)
+[2025-07-22T18:11:43.272+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 10.0 in stage 1.0 (TID 22) in 256 ms on 0efa5108fca0 (executor driver) (8/12)
+[2025-07-22T18:11:43.273+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 11.0 in stage 1.0 (TID 23). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.273+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 11.0 in stage 1.0 (TID 23) in 257 ms on 0efa5108fca0 (executor driver) (9/12)
+[2025-07-22T18:11:43.275+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 7.0 in stage 1.0 (TID 19) in 261 ms on 0efa5108fca0 (executor driver) (10/12)
+[2025-07-22T18:11:43.291+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 251, boot = -1387, init = 1636, finish = 2
+[2025-07-22T18:11:43.296+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 6.0 in stage 1.0 (TID 18). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.297+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 6.0 in stage 1.0 (TID 18) in 285 ms on 0efa5108fca0 (executor driver) (11/12)
+[2025-07-22T18:11:43.314+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO PythonRunner: Times: total = 273, boot = -1305, init = 1576, finish = 2
+[2025-07-22T18:11:43.318+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 2.0 in stage 1.0 (TID 14). 2375 bytes result sent to driver
+[2025-07-22T18:11:43.319+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 14) in 312 ms on 0efa5108fca0 (executor driver) (12/12)
+[2025-07-22T18:11:43.320+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+[2025-07-22T18:11:43.321+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: ShuffleMapStage 1 (count at NativeMethodAccessorImpl.java:0) finished in 0.332 s
+[2025-07-22T18:11:43.321+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: looking for newly runnable stages
+[2025-07-22T18:11:43.322+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: running: Set()
+[2025-07-22T18:11:43.323+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: waiting: Set()
+[2025-07-22T18:11:43.323+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: failed: Set()
+[2025-07-22T18:11:43.355+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO CodeGenerator: Code generated in 9.105627 ms
+[2025-07-22T18:11:43.380+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO SparkContext: Starting job: count at NativeMethodAccessorImpl.java:0
+[2025-07-22T18:11:43.382+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: Got job 2 (count at NativeMethodAccessorImpl.java:0) with 1 output partitions
+25/07/22 18:11:43 INFO DAGScheduler: Final stage: ResultStage 3 (count at NativeMethodAccessorImpl.java:0)
+[2025-07-22T18:11:43.383+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
+[2025-07-22T18:11:43.383+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: Missing parents: List()
+[2025-07-22T18:11:43.384+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[13] at count at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2025-07-22T18:11:43.392+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 12.5 KiB, free 434.3 MiB)
+[2025-07-22T18:11:43.393+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 434.3 MiB)
+[2025-07-22T18:11:43.394+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 0efa5108fca0:39917 (size: 5.9 KiB, free: 434.4 MiB)
+[2025-07-22T18:11:43.394+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1585
+[2025-07-22T18:11:43.395+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[13] at count at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2025-07-22T18:11:43.395+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks resource profile 0
+[2025-07-22T18:11:43.399+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 24) (0efa5108fca0, executor driver, partition 0, NODE_LOCAL, 7615 bytes)
+[2025-07-22T18:11:43.400+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Running task 0.0 in stage 3.0 (TID 24)
+[2025-07-22T18:11:43.431+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO ShuffleBlockFetcherIterator: Getting 12 (720.0 B) non-empty blocks including 12 (720.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+[2025-07-22T18:11:43.434+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 10 ms
+[2025-07-22T18:11:43.451+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO CodeGenerator: Code generated in 9.045268 ms
+[2025-07-22T18:11:43.469+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO Executor: Finished task 0.0 in stage 3.0 (TID 24). 4038 bytes result sent to driver
+[2025-07-22T18:11:43.471+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 24) in 73 ms on 0efa5108fca0 (executor driver) (1/1)
+[2025-07-22T18:11:43.472+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool
+[2025-07-22T18:11:43.473+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: ResultStage 3 (count at NativeMethodAccessorImpl.java:0) finished in 0.082 s
+[2025-07-22T18:11:43.473+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+25/07/22 18:11:43 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+[2025-07-22T18:11:43.474+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO DAGScheduler: Job 2 finished: count at NativeMethodAccessorImpl.java:0, took 0.093380 s
+[2025-07-22T18:11:43.479+0000] {docker.py:436} INFO - 11567 registros de voos escritos com sucesso na tabela 'flight_data_live'!
+[2025-07-22T18:11:43.481+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-07-22T18:11:43.491+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO SparkUI: Stopped Spark web UI at http://0efa5108fca0:4040
+[2025-07-22T18:11:43.520+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-07-22T18:11:43.536+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO MemoryStore: MemoryStore cleared
+[2025-07-22T18:11:43.537+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO BlockManager: BlockManager stopped
+[2025-07-22T18:11:43.543+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-07-22T18:11:43.545+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-07-22T18:11:43.554+0000] {docker.py:436} INFO - 25/07/22 18:11:43 INFO SparkContext: Successfully stopped SparkContext
+[2025-07-22T18:11:44.368+0000] {docker.py:436} INFO - 25/07/22 18:11:44 INFO ShutdownHookManager: Shutdown hook called
+[2025-07-22T18:11:44.369+0000] {docker.py:436} INFO - 25/07/22 18:11:44 INFO ShutdownHookManager: Deleting directory /tmp/spark-eb8c021f-048c-4b39-b5b2-031f31d211dc/pyspark-be689d33-0991-470c-9431-495c3a0c8c2c
+[2025-07-22T18:11:44.372+0000] {docker.py:436} INFO - 25/07/22 18:11:44 INFO ShutdownHookManager: Deleting directory /tmp/spark-eb8c021f-048c-4b39-b5b2-031f31d211dc
+[2025-07-22T18:11:44.375+0000] {docker.py:436} INFO - 25/07/22 18:11:44 INFO ShutdownHookManager: Deleting directory /tmp/spark-e5cc90de-7ac0-4711-b21d-ad57830c7607
+[2025-07-22T18:11:44.742+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-22T18:11:44.761+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=flight_data_pipeline, task_id=run_spark_job_container, run_id=manual__2025-07-22T18:11:30.998840+00:00, execution_date=20250722T181130, start_date=20250722T181132, end_date=20250722T181144
+[2025-07-22T18:11:44.818+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-22T18:11:44.830+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-22T18:11:44.832+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

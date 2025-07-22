@@ -28,7 +28,7 @@ with DAG(
     process_spark_job = DockerOperator(
         task_id="run_spark_job_container",
         # Nome da imagem Docker que construímos na Fase 1
-        image="realtime-flight-pipeline/spark-job:0.1",
+        image="realtime-flight-pipeline/spark-job:0.6",
         # Equivalente a 'docker run'. O Airflow se encarrega disso.
         command="/opt/bitnami/spark/bin/spark-submit /app/process_flights.py",
         # Garante que o contêiner será removido após a execução
@@ -36,5 +36,5 @@ with DAG(
         # Essencial para que o DockerOperator funcione quando o Airflow
         # também está rodando em Docker.
         docker_url="unix://var/run/docker.sock",
-        network_mode="bridge"
+        network_mode="realtime-flight-pipeline_default"
     )
