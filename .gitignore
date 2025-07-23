@@ -1,0 +1,24 @@
+# Arquivos de log gerados pelo Airflow
+logs/
+
+# Arquivos de plugins do Airflow (se não tivermos plugins customizados)
+plugins/
+
+# Arquivos de configuração de ambiente. NUNCA comitar!
+.env
+
+# Cache e arquivos compilados do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos de configuração do editor VSCode
+.vscode/
+
+# Volumes de dados do Docker (apenas para referência,
+# o Docker Compose geralmente os gere fora da pasta do projeto)
+postgres-db-volume/
+redis-db-volume/
+postgres-data-flights/
+grafana-storage/
