@@ -1,6 +1,6 @@
 # spark_job/process_flights.py
 
-# Importações necessárias - GARANTA QUE TODAS ESTEJAM AQUI
+# Importações necessárias
 import requests
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, from_unixtime
@@ -20,8 +20,9 @@ def get_flight_data():
 def main():
     """Função principal do nosso job Spark."""
     
-    # 1. Criando a SparkSession (sem a linha .config)
-    # O Spark encontrará o driver JDBC automaticamente na pasta /opt/bitnami/spark/jars
+    # 1. Criando a SparkSession
+    # O driver JDBC já está incluído na nossa imagem Docker, então não precisamos
+    # da configuração 'spark.jars.packages' aqui.
     spark = SparkSession.builder \
         .appName("FlightDataProcessing") \
         .master("local[*]") \
@@ -90,8 +91,9 @@ def main():
             "driver": "org.postgresql.Driver"
         }
         
-        # Use a URL com o IP que encontrámos anteriormente
-        db_url = "jdbc:postgresql://172.18.0.3:5432/flights" # MANTENHA O IP AQUI
+        # URL de conexão JDBC para a rede do host.
+        # O contentor irá ligar-se a 'localhost' na porta que expusemos (5433).
+        db_url = "jdbc:postgresql://localhost:5433/flights"
 
         df_to_write.write.jdbc(
             url=db_url,
@@ -105,6 +107,7 @@ def main():
     else:
         print("Não foi possível obter dados dos voos ou a resposta da API veio vazia.")
 
+    # 5. Encerrando a sessão Spark
     spark.stop()
 
 if __name__ == "__main__":
